@@ -1,18 +1,18 @@
 // QUIZ
 
-function respostaCerta(){
+function correta(){
 
     document.getElementById("resultado").innerHTML =
-        "✅ Resposta correta!";
+    "✅ Resposta correta!";
 }
 
-function respostaErrada(){
+function errada(){
 
     document.getElementById("resultado").innerHTML =
-        "❌ Resposta errada!";
+    "❌ Resposta errada!";
 }
 
-// GRÁFICO
+// GRAFICO
 
 const ctx = document.getElementById('grafico');
 
@@ -26,7 +26,7 @@ new Chart(ctx, {
 
         datasets: [{
 
-            label: 'Produção',
+            label: 'Produção Sustentável',
 
             data: [10, 15, 20, 30, 40],
 
