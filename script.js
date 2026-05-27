@@ -1,22 +1,15 @@
 // QUIZ
 
-function resposta(tipo){
+function respostaCerta(){
 
-    let resultado = document.getElementById("resultado");
+    document.getElementById("resultado").innerHTML =
+        "✅ Resposta correta!";
+}
 
-    if(tipo === "certo"){
+function respostaErrada(){
 
-        resultado.innerHTML = "✅ Resposta correta!";
-
-        resultado.style.color = "green";
-
-    }else{
-
-        resultado.innerHTML = "❌ Resposta errada!";
-
-        resultado.style.color = "red";
-    }
-
+    document.getElementById("resultado").innerHTML =
+        "❌ Resposta errada!";
 }
 
 // GRÁFICO
@@ -24,6 +17,7 @@ function resposta(tipo){
 const ctx = document.getElementById('grafico');
 
 new Chart(ctx, {
+
     type: 'bar',
 
     data: {
@@ -31,11 +25,10 @@ new Chart(ctx, {
         labels: ['2022', '2023', '2024', '2025', '2026'],
 
         datasets: [{
-            label: 'Produção Sustentável',
 
-            data: [12, 19, 25, 32, 40],
+            label: 'Produção',
 
-            borderWidth: 1,
+            data: [10, 15, 20, 30, 40],
 
             backgroundColor: [
                 '#66bb6a',
@@ -45,16 +38,5 @@ new Chart(ctx, {
                 '#0d4715'
             ]
         }]
-    },
-
-    options: {
-
-        responsive:true,
-
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
     }
 });
