@@ -2,27 +2,23 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-    background:#f4fff4;
+    background:#f5fff5;
     color:#333;
 }
 
 header{
-    background:linear-gradient(to right,#1b5e20,#4caf50);
+    background:linear-gradient(to right,#1b5e20,#43a047);
     color:white;
     text-align:center;
     padding:30px;
 }
 
 header h1{
-    font-size:40px;
-}
-
-header p{
-    margin-top:10px;
+    font-size:42px;
 }
 
 nav{
@@ -54,26 +50,67 @@ nav a:hover{
     position:absolute;
     top:50%;
     left:50%;
-    transform:translate(-50%, -50%);
+    transform:translate(-50%,-50%);
     background:rgba(0,0,0,0.6);
+    color:white;
     padding:20px;
     border-radius:10px;
-    color:white;
     text-align:center;
+    width:80%;
 }
 
 .conteudo{
     padding:50px 10%;
 }
 
-.conteudo h2{
-    text-align:center;
-    margin-bottom:30px;
-    color:#2e7d32;
-}
-
 .verde{
     background:#e8f5e9;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#1b5e20;
+}
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.galeria img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+    transition:0.4s;
+}
+
+.galeria img:hover{
+    transform:scale(1.05);
+}
+
+.drone-area{
+    height:120px;
+    position:relative;
+    overflow:hidden;
+}
+
+.drone{
+    font-size:60px;
+    position:absolute;
+    animation:voar 8s linear infinite;
+}
+
+@keyframes voar{
+    from{
+        left:-100px;
+    }
+
+    to{
+        left:100%;
+    }
 }
 
 .cards{
@@ -88,37 +125,40 @@ nav a:hover{
     width:300px;
     padding:20px;
     border-radius:15px;
-    box-shadow:0 5px 10px rgba(0,0,0,0.2);
-    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-.card:hover{
-    transform:scale(1.05);
+.clima-box{
+    background:white;
+    max-width:400px;
+    margin:auto;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-.card h3{
-    margin-bottom:10px;
-    color:#1b5e20;
+.quiz-box{
+    text-align:center;
 }
 
-article{
-    margin-bottom:30px;
+.quiz-box button{
+    padding:15px 20px;
+    margin:10px;
+    border:none;
+    background:#2e7d32;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
 }
 
-article h3{
-    margin-bottom:10px;
+.quiz-box button:hover{
+    background:#1b5e20;
 }
 
-ul{
-    line-height:2;
-    font-size:18px;
-}
-
-.videos{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
+.centralizado{
+    text-align:center;
+    margin-top:20px;
 }
 
 footer{
@@ -126,7 +166,12 @@ footer{
     color:white;
     text-align:center;
     padding:20px;
-    margin-top:30px;
+}
+
+canvas{
+    background:white;
+    padding:20px;
+    border-radius:15px;
 }
 
 @media(max-width:768px){
@@ -135,11 +180,12 @@ footer{
         font-size:28px;
     }
 
-    .texto-banner{
-        width:90%;
-    }
-
     .banner img{
         height:300px;
     }
+
+    .texto-banner{
+        width:95%;
+    }
+
 }
