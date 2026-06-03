@@ -1,503 +1,296 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável</title>
+    <style>
+        /* Variáveis de Cores para facilitar customização */
+        :root {
+            --primary-color: #2e7d32; /* Verde Agro */
+            --secondary-color: #81c784;
+            --dark-color: #1b5e20;
+            --text-color: #333333;
+            --light-bg: #f4fbf7;
+            --white: #ffffff;
+        }
 
-    <title>Agrinho 2026</title>
+        /* Configurações Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        body {
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
 
-    <!-- Biblioteca do gráfico -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        /* Menu de Navegação Superior Fixoc */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Banner Principal (Hero Section) */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        /* Seções de Conteúdo */
+        section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            scroll-margin-top: 80px; /* Evita que o topo suma embaixo do menu ao clicar */
+        }
+
+        h2 {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Grid de Tecnologias/Cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        /* Seção do Quiz Interativo */
+        .quiz-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .quiz-btn {
+            background-color: var(--light-bg);
+            border: 2px solid var(--secondary-color);
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .quiz-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        #quiz-result {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 80px;
+        }
+
+        /* Ajustes para Celular (Responsividade) */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
     <header>
-
-        <h1>🌱 Agro Forte, Futuro Sustentável</h1>
-
-        <p>
-            Equilíbrio entre produção e meio ambiente
-        </p>
-
-        <nav>
-
-            <a href="#sobre">Sobre</a>
-
-            <a href="#importancia">Importância</a>
-
-            <a href="#desafios">Desafios</a>
-
-            <a href="#tecnologia">Tecnologia</a>
-
-            <a href="#artigos">Artigos</a>
-
-            <a href="#curiosidades">Curiosidades</a>
-
-            <a href="#videos">Vídeos</a>
-
-            <a href="#dicas">Sustentabilidade</a>
-
-            <a href="#quiz">Quiz</a>
-
-        </nav>
-
+        <div class="nav-container">
+            <div class="logo">🌱 Projeto AgroSustentável</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#tecnologia">Tecnologia</a></li>
+                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!-- BANNER -->
+    <section class="hero">
+        <h1>O Futuro do Agro é Sustentável</h1>
+        <p>Produzir mais e melhor, preservando os recursos naturais para as próximas gerações com o auxílio da tecnologia.</p>
+    </section>
 
-    <section class="banner">
+    <section id="sobre">
+        <h2>Sobre o Projeto</h2>
+        <p>Este projeto foi inspirado na iniciativa de conscientização do campo e tem como objetivo mostrar como a agricultura moderna alia a produtividade econômica à conservação ambiental. Unindo o conhecimento tradicional a inovações de ponta, o agronegócio caminha para um futuro ecologicamente correto.</p>
+    </section>
 
-        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80">
-
-        <div class="texto-banner">
-
-            <h2>
-                O Futuro do Agro é Sustentável
-            </h2>
-
-            <p>
-                Produzir mais preservando o planeta.
-            </p>
-
+    <section id="tecnologia">
+        <h2>Tecnologia e IA no Campo</h2>
+        <p>Como as novas ferramentas estão revolucionando o dia a dia das propriedades agrícolas:</p>
+        
+        <div class="grid-container">
+            <div class="card">
+                <h3>🛰️ Drones & Sensores</h3>
+                <p>Monitoram a saúde do solo, identificam focos de pragas com precisão e analisam a necessidade exata de irrigação.</p>
+            </div>
+            <div class="card">
+                <h3>🚜 Maquinário Autônomo</h3>
+                <p>Tratores e colheitadeiras guiados por GPS reduzem a compactação do solo e evitam o desperdício de combustível.</p>
+            </div>
+            <div class="card">
+                <h3>📊 Inteligência Artificial</h3>
+                <p>Algoritmos analisam dados climáticos históricos para prever a melhor janela de plantio e estimar o volume da colheita.</p>
+            </div>
         </div>
-
     </section>
 
-    <!-- SOBRE -->
-
-    <section id="sobre" class="conteudo">
-
-        <h2>🏆 Sobre o Concurso Agrinho</h2>
-
-        <p>
-            O Agrinho 2026 incentiva estudantes a desenvolverem ideias inovadoras
-            sobre sustentabilidade, tecnologia e preservação ambiental no campo.
-        </p>
-
-    </section>
-
-    <!-- IMPORTANCIA -->
-
-    <section id="importancia" class="conteudo verde">
-
-        <h2>🌾 A Importância do Agro</h2>
-
-        <p>
-            O agronegócio é responsável pela produção de alimentos, geração de empregos
-            e fortalecimento da economia brasileira.
-        </p>
-
-        <p>
-            A tecnologia ajuda agricultores a produzirem mais utilizando menos recursos naturais.
-        </p>
-
-    </section>
-
-    <!-- GALERIA -->
-
-    <section class="conteudo">
-
-        <h2>🌾 Galeria do Agro</h2>
-
-        <div class="galeria">
-
-            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80">
-
-            <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80">
-
-            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80">
-
+    <section id="sustentabilidade">
+        <h2>Práticas Sustentáveis</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>💧 Manejo de Água</h3>
+                <p>Sistemas de irrigação por gotejamento aplicam a quantidade exata de água na raiz da planta, diminuindo drasticamente a evaporação e o desperdício.</p>
+            </div>
+            <div class="card">
+                <h3>🔄 Rotação de Culturas</h3>
+                <p>Alternar diferentes espécies de plantas em uma mesma área ajuda a quebrar o ciclo de pragas e melhora naturalmente os nutrientes da terra.</p>
+            </div>
+            <div class="card">
+                <h3>☀️ Energia Limpa</h3>
+                <p>A utilização de painéis solares para alimentar sistemas de bombeamento e cercas elétricas diminui a pegada de carbono das fazendas.</p>
+            </div>
         </div>
-
     </section>
 
-    <!-- DESAFIOS -->
-
-    <section id="desafios" class="conteudo verde">
-
-        <h2>🌎 Desafios do Agro</h2>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>💧 Economia de Água</h3>
-
-                <p>
-                    Sistemas inteligentes ajudam a evitar desperdícios.
-                </p>
-
+    <section id="quiz">
+        <h2>Quiz Ecológico</h2>
+        <div class="quiz-box">
+            <p><strong>Pergunta:</strong> Qual das seguintes tecnologias é utilizada especificamente para economizar água e aplicar a quantidade exata na raiz da planta?</p>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="verificarResposta(true)">Irrigação Inteligente por Gotejamento</button>
+                <button class="quiz-btn" onclick="verificarResposta(false)">Queimada Controlada</button>
+                <button class="quiz-btn" onclick="verificarResposta(false)">Uso Massivo de Tratores Convencionais</button>
             </div>
-
-            <div class="card">
-
-                <h3>🌳 Preservação Ambiental</h3>
-
-                <p>
-                    Produzir sem destruir a natureza é essencial.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>🌡 Mudanças Climáticas</h3>
-
-                <p>
-                    O clima influencia diretamente a agricultura.
-                </p>
-
-            </div>
-
+            <div id="quiz-result"></div>
         </div>
-
-    </section>
-
-    <!-- DRONE -->
-
-    <section class="conteudo">
-
-        <h2>🛰 Drone Agrícola</h2>
-
-        <div class="drone-area">
-
-            <div class="drone">
-                🚁
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- TECNOLOGIA -->
-
-    <section id="tecnologia" class="conteudo verde">
-
-        <h2>🤖 Tecnologia e IA no Agro</h2>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>🌱 Sensores Inteligentes</h3>
-
-                <p>
-                    Monitoram solo, irrigação e temperatura automaticamente.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>🚜 Máquinas Modernas</h3>
-
-                <p>
-                    Tratores usam GPS e inteligência artificial.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>📊 Previsão de Colheita</h3>
-
-                <p>
-                    Sistemas ajudam produtores a aumentar produtividade.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>🤖 Robôs Agrícolas</h3>
-
-                <p>
-                    Robôs ajudam no plantio e monitoramento das lavouras.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ARTIGOS -->
-
-    <section id="artigos" class="conteudo">
-
-        <h2>📚 Artigos</h2>
-
-        <article>
-
-            <h3>Agricultura Sustentável</h3>
-
-            <p>
-                A agricultura sustentável busca aumentar a produção
-                preservando os recursos naturais.
-            </p>
-
-        </article>
-
-        <article>
-
-            <h3>Tecnologia no Campo</h3>
-
-            <p>
-                Drones e inteligência artificial ajudam agricultores
-                a produzir mais com menos desperdício.
-            </p>
-
-        </article>
-
-    </section>
-
-    <!-- CURIOSIDADES -->
-
-    <section id="curiosidades" class="conteudo verde">
-
-        <h2>🤔 Curiosidades</h2>
-
-        <ul>
-
-            <li>🌱 O Brasil é um dos maiores produtores agrícolas do mundo.</li>
-
-            <li>🚜 Muitos tratores modernos usam GPS.</li>
-
-            <li>💧 Irrigação inteligente economiza água.</li>
-
-            <li>☀ Energia solar já é usada em fazendas.</li>
-
-        </ul>
-
-    </section>
-
-    <!-- VIDEOS -->
-
-    <section id="videos" class="conteudo">
-
-        <h2>🎥 Novas Tecnologias</h2>
-
-        <div class="videos">
-
-            <iframe width="350" height="200"
-                src="https://www.youtube.com/embed/7n0M8m0Yx1E"
-                allowfullscreen>
-            </iframe>
-
-            <iframe width="350" height="200"
-                src="https://www.youtube.com/embed/ZV5M6v9Q4L0"
-                allowfullscreen>
-            </iframe>
-
-        </div>
-
-    </section>
-
-    <!-- CLIMA -->
-
-    <section class="conteudo verde">
-
-        <h2>🌧 Sistema de Clima</h2>
-
-        <div class="clima">
-
-            <p>☀ Temperatura: 24°C</p>
-
-            <p>💧 Umidade: 65%</p>
-
-            <p>🌬 Vento: 10 km/h</p>
-
-        </div>
-
-    </section>
-
-    <!-- GRAFICO -->
-
-    <section class="conteudo">
-
-        <h2>📈 Produção Sustentável</h2>
-
-        <canvas id="grafico"></canvas>
-
-    </section>
-
-    <!-- MAPA -->
-
-    <section class="conteudo verde">
-
-        <h2>🌎 Região Agrícola</h2>
-
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230483.1500042218!2d-49.429883!3d-25.495024"
-            width="100%"
-            height="350"
-            style="border:0;"
-            allowfullscreen="">
-        </iframe>
-
-    </section>
-
-    <!-- DICAS -->
-
-    <section id="dicas" class="conteudo">
-
-        <h2>🌿 Dicas Sustentáveis</h2>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>♻ Reutilização</h3>
-
-                <p>
-                    Aproveitar água da chuva reduz desperdícios.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>🌞 Energia Limpa</h3>
-
-                <p>
-                    Painéis solares ajudam a economizar energia.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>🌾 Rotação de Culturas</h3>
-
-                <p>
-                    Alternar plantações melhora o solo.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ECONOMIA DE AGUA -->
-
-    <section class="conteudo verde">
-
-        <h2>💧 Como Economizar Água</h2>
-
-        <ul>
-
-            <li>✔ Utilizar irrigação por gotejamento.</li>
-
-            <li>✔ Aproveitar água da chuva.</li>
-
-            <li>✔ Monitorar a umidade do solo.</li>
-
-            <li>✔ Evitar desperdícios.</li>
-
-            <li>✔ Preservar rios e nascentes.</li>
-
-        </ul>
-
-    </section>
-
-    <!-- SUSTENTABILIDADE -->
-
-    <section class="conteudo">
-
-        <h2>🌱 Sustentabilidade no Campo</h2>
-
-        <p>
-            Sustentabilidade significa produzir alimentos preservando os recursos naturais
-            para as futuras gerações.
-        </p>
-
-        <p>
-            Técnicas como plantio direto e energia limpa ajudam a reduzir impactos ambientais.
-        </p>
-
-    </section>
-
-    <!-- OBJETIVOS -->
-
-    <section class="conteudo verde">
-
-        <h2>🌍 Objetivos Sustentáveis</h2>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>🍎 Fome Zero</h3>
-
-                <p>
-                    Produzir alimentos ajuda no combate à fome.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>💧 Água Limpa</h3>
-
-                <p>
-                    Preservar rios garante água para todos.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>🌳 Vida Terrestre</h3>
-
-                <p>
-                    Proteger florestas mantém o equilíbrio ambiental.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- QUIZ -->
-
-    <section id="quiz" class="conteudo">
-
-        <h2>🌱 Quiz Ecológico</h2>
-
-        <div class="quiz">
-
-            <p>
-                Qual tecnologia ajuda a economizar água?
-            </p>
-
-            <button onclick="correta()">
-                Irrigação Inteligente
-            </button>
-
-            <button onclick="errada()">
-                Queimadas
-            </button>
-
-            <h3 id="resultado"></h3>
-
-        </div>
-
     </section>
 
     <footer>
-
-        Projeto Agrinho 2026 🌱
-
+        <p>Projeto AgroSustentável © 2026 — Desenvolvido com foco no futuro do campo.</p>
     </footer>
 
-    <script src="script.js"></script>
-
-</body>
-
+    <script>
+        function verificarResposta(correto) {
+            const resultado
 </html>
