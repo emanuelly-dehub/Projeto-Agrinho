@@ -1,26 +1,30 @@
-// Banco de dados de curiosidades geradas pela "IA" do site
-const curiosidadesAgro = [
-    "🤖 [IA Insights]: Você sabia que tratores autônomos hoje usam GPS com precisão milimétrica? Isso evita que eles passem duas vezes pelo mesmo lugar, economizando muito combustível e reduzindo a compactação do solo!",
-    "🌱 [IA Insights]: Sensores subterrâneos conseguem 'conversar' com os sistemas de irrigação. Eles avisam exatamente quando a planta está com sede, evitando o desperdício de bilhões de litros de água doce.",
-    "🛸 [IA Insights]: Drones equipados com câmeras térmicas conseguem detectar uma praga na plantação antes mesmo que o olho humano consiga ver qualquer mancha na folha. Isso permite tratar apenas a planta doente, reduzindo o uso de defensivos.",
-    "🌾 [IA Insights]: A biotecnologia permitiu criar sementes que se adaptam a climas extremos de seca. Isso garante que alimentos continuem crescendo mesmo com as mudanças climáticas globais.",
-    "🔄 [IA Insights]: O sistema ILPF (Integração Lavoura-Pecuária-Floresta) permite que o mesmo espaço produza grãos, carne e madeira. As árvores plantadas ajudam a reter gás carbônico, neutralizando as emissões dos animais!"
+// Banco de dados de curiosidades simulado pela IA
+const curiosidadesIA = [
+    "🤖 Sabia que algumas IA no agro analisam imagens de satélite para prever a colheita com até 95% de precisão antes mesmo das máquinas irem a campo?",
+    "🌱 Curiosidade Biológica: As bactérias mencionadas nos artigos científicos agem como 'fábricas naturais', transformando o nitrogênio do ar em adubo para as plantas, sem poluir os lençóis freáticos!",
+    "🛸 Drones inteligentes conseguem aplicar defensivos agrícolas focando apenas na planta doente, reduzindo o uso de químicos em até 90% comparado à pulverização tradicional.",
+    "🚜 Tratores autônomos de hoje utilizam GPS de alta precisão milimétrica. Eles conseguem plantar fileiras perfeitas evitando a compactação desnecessária do solo.",
+    "💧 Sensores de umidade subterrâneos avisam o sistema de irrigação via nuvem para desligar se houver previsão de chuva iminente, economizando bilhões de litros de água por ano."
 ];
 
-// Seleção dos elementos da página
 const botaoIA = document.getElementById('btn-ia');
-const respostaDiv = document.getElementById('resposta-ia');
-const textoCuriosidade = document.getElementById('texto-curiosidade');
+const caixaResposta = document.getElementById('ia-box');
+const textoIA = document.getElementById('texto-ia');
+const containerResposta = document.getElementById('ia-resposta');
 
-// Função que simula a IA escolhendo uma curiosidade aleatória
 botaoIA.addEventListener('click', () => {
-    // Efeito de "carregando"
-    textoCuriosidade.innerText = "IA pensando e processando dados científicos...";
-    respostaDiv.classList.remove('hidden');
+    // Remove a classe 'hidden' para mostrar a caixa
+    containerResposta.classList.remove('hidden');
+    
+    // Mostra estado de carregamento simulando a IA 'pensando'
+    textoIA.innerHTML = "<em>Analisando dados científicos e gerando insight...</em>";
     
     setTimeout(() => {
-        // Escolhe uma frase aleatória do array
-        const indiceAleatorio = Math.floor(Math.random() * curiosidadesAgro.length);
-        textoCuriosidade.innerText = curiosidadesAgro[indiceAleatorio];
-    }, 800); // Aguarda 800 milissegundos para simular o pensamento da IA
+        // Sorteia uma curiosidade aleatória do array
+        const indexAleatorio = Math.floor(Math.random() * curiosidadesIA.length);
+        const respostaSorteada = curiosidadesIA[indexAleatorio];
+        
+        // Exibe o texto final gerado pela IA
+        textoIA.innerText = respostaSorteada;
+    }, 1200); // Aguarda 1.2 segundos para simular o processamento
 });
