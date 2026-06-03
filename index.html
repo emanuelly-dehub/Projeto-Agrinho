@@ -3,294 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável</title>
-    <style>
-        /* Variáveis de Cores para facilitar customização */
-        :root {
-            --primary-color: #2e7d32; /* Verde Agro */
-            --secondary-color: #81c784;
-            --dark-color: #1b5e20;
-            --text-color: #333333;
-            --light-bg: #f4fbf7;
-            --white: #ffffff;
-        }
-
-        /* Configurações Gerais */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            color: var(--text-color);
-            background-color: var(--light-bg);
-            line-height: 1.6;
-        }
-
-        /* Menu de Navegação Superior Fixoc */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Banner Principal (Hero Section) */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-        }
-
-        /* Seções de Conteúdo */
-        section {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-            scroll-margin-top: 80px; /* Evita que o topo suma embaixo do menu ao clicar */
-        }
-
-        h2 {
-            color: var(--dark-color);
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        /* Grid de Tecnologias/Cards */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary-color);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            margin-bottom: 12px;
-            color: var(--primary-color);
-        }
-
-        /* Seção do Quiz Interativo */
-        .quiz-box {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            max-width: 600px;
-            margin: 30px auto;
-        }
-
-        .quiz-options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .quiz-btn {
-            background-color: var(--light-bg);
-            border: 2px solid var(--secondary-color);
-            padding: 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            text-align: left;
-            transition: all 0.2s;
-        }
-
-        .quiz-btn:hover {
-            background-color: var(--secondary-color);
-            color: var(--white);
-        }
-
-        #quiz-result {
-            margin-top: 15px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: var(--dark-color);
-            color: var(--white);
-            text-align: center;
-            padding: 20px;
-            margin-top: 80px;
-        }
-
-        /* Ajustes para Celular (Responsividade) */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <title>Agrinho: Inovação e Sustentabilidade no Campo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="nav-container">
-            <div class="logo">🌱 Projeto AgroSustentável</div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#tecnologia">Tecnologia</a></li>
-                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
-                    <li><a href="#quiz">Quiz</a></li>
-                </ul>
-            </nav>
+        <div class="container">
+            <h1>Agrinho 2026</h1>
+            <p>Tecnologia e Sustentabilidade no Agronegócio</p>
         </div>
     </header>
 
-    <section class="hero">
-        <h1>O Futuro do Agro é Sustentável</h1>
-        <p>Produzir mais e melhor, preservando os recursos naturais para as próximas gerações com o auxílio da tecnologia.</p>
-    </section>
-
-    <section id="sobre">
-        <h2>Sobre o Projeto</h2>
-        <p>Este projeto foi inspirado na iniciativa de conscientização do campo e tem como objetivo mostrar como a agricultura moderna alia a produtividade econômica à conservação ambiental. Unindo o conhecimento tradicional a inovações de ponta, o agronegócio caminha para um futuro ecologicamente correto.</p>
-    </section>
-
-    <section id="tecnologia">
-        <h2>Tecnologia e IA no Campo</h2>
-        <p>Como as novas ferramentas estão revolucionando o dia a dia das propriedades agrícolas:</p>
-        
-        <div class="grid-container">
-            <div class="card">
-                <h3>🛰️ Drones & Sensores</h3>
-                <p>Monitoram a saúde do solo, identificam focos de pragas com precisão e analisam a necessidade exata de irrigação.</p>
-            </div>
-            <div class="card">
-                <h3>🚜 Maquinário Autônomo</h3>
-                <p>Tratores e colheitadeiras guiados por GPS reduzem a compactação do solo e evitam o desperdício de combustível.</p>
-            </div>
-            <div class="card">
-                <h3>📊 Inteligência Artificial</h3>
-                <p>Algoritmos analisam dados climáticos históricos para prever a melhor janela de plantio e estimar o volume da colheita.</p>
+    <section class="sub-section">
+        <div class="container">
+            <h2>Tecnologia no Campo</h2>
+            <p>O uso de drones, sensores IoT e maquinários autônomos está transformando a produção agrícola, permitindo uma gestão mais precisa e sustentável.</p>
+            
+            <div class="media-grid">
+                <div class="media-card">
+                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?w=500" alt="Drone sobrevoando plantação">
+                    <h3>Monitoramento por Drones</h3>
+                </div>
+                <div class="media-card">
+                    <video controls>
+                        <source src="seu-video-aqui.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                    <h3>Tecnologia em Ação</h3>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="sustentabilidade">
-        <h2>Práticas Sustentáveis</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>💧 Manejo de Água</h3>
-                <p>Sistemas de irrigação por gotejamento aplicam a quantidade exata de água na raiz da planta, diminuindo drasticamente a evaporação e o desperdício.</p>
+    <section class="articles-section">
+        <div class="container">
+            <h2>Inovações Científicas</h2>
+            <div class="article-box">
+                <blockquote>
+                    "A aplicação de Inteligência Artificial na análise de solo reduziu o uso de fertilizantes nitrogenados em até 25%, mantendo a produtividade e mitigando os impactos ambientais."
+                </blockquote>
+                <cite>— Revista Brasileira de Ciência do Solo (Adaptado)</cite>
             </div>
-            <div class="card">
-                <h3>🔄 Rotação de Culturas</h3>
-                <p>Alternar diferentes espécies de plantas em uma mesma área ajuda a quebrar o ciclo de pragas e melhora naturalmente os nutrientes da terra.</p>
-            </div>
-            <div class="card">
-                <h3>☀️ Energia Limpa</h3>
-                <p>A utilização de painéis solares para alimentar sistemas de bombeamento e cercas elétricas diminui a pegada de carbono das fazendas.</p>
+            <div class="article-box">
+                <blockquote>
+                    "Sistemas de irrigação inteligente baseados em sensores de umidade garantem uma economia de água de cerca de 40% nas lavouras de grãos."
+                </blockquote>
+                <cite>— Artigo de Inovação Hidrológica no Agro (Adaptado)</cite>
             </div>
         </div>
     </section>
 
-    <section id="quiz">
-        <h2>Quiz Ecológico</h2>
-        <div class="quiz-box">
-            <p><strong>Pergunta:</strong> Qual das seguintes tecnologias é utilizada especificamente para economizar água e aplicar a quantidade exata na raiz da planta?</p>
-            <div class="quiz-options">
-                <button class="quiz-btn" onclick="verificarResposta(true)">Irrigação Inteligente por Gotejamento</button>
-                <button class="quiz-btn" onclick="verificarResposta(false)">Queimada Controlada</button>
-                <button class="quiz-btn" onclick="verificarResposta(false)">Uso Massivo de Tratores Convencionais</button>
+    <section class="ai-section">
+        <div class="container">
+            <h2>Pergunte à IA do Agrinho</h2>
+            <p>Clique no botão abaixo para que nossa Inteligência Artificial traga uma curiosidade científica sobre a inovação no agro!</p>
+            
+            <div class="ai-box">
+                <button id="btn-ia">Gerar Curiosidade da IA</button>
+                <div id="resposta-ia" class="hidden">
+                    <p id="texto-curiosidade">Clique no botão para começar...</p>
+                </div>
             </div>
-            <div id="quiz-result"></div>
         </div>
     </section>
 
     <footer>
-        <p>Projeto AgroSustentável © 2026 — Desenvolvido com foco no futuro do campo.</p>
+        <p>&copy; 2026 Projeto Agrinho - Tecnologia e Sustentabilidade.</p>
     </footer>
 
-    <script>
-        function verificarResposta(correto) {
-            const resultado
+    <script src="script.js"></script>
+</body>
 </html>
